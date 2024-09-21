@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<!--This is for capturing failed or passed Test cases with name-->
+	<listeners>
+		<listener class-name="sunFi.Listeners" />
+	</listeners>
+
+	<test thread-count="5" name="Authentication">
+		<classes>
+			<class name="highTechQA.Signup" />
+			<class name="highTechQA.Login" />
+		</classes>
+	</test> <!--
+	Test -->
+	<test thread-count="5" name="Item Management">
+		<classes>
+			<class name="highTechQA.AddItem" />
+		</classes>
+	</test> <!--
+	Test -->
+
+</suite> 
+

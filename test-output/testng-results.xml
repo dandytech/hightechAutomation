@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-09-20T22:59:21 WAT" name="Default suite" finished-at="2024-09-20T23:00:09 WAT" duration-ms="48031">
+  <suite started-at="2024-09-21T09:42:44 WAT" name="Default suite" finished-at="2024-09-21T09:42:58 WAT" duration-ms="14394">
     <groups>
     </groups>
-    <test started-at="2024-09-20T22:59:21 WAT" name="Default test" finished-at="2024-09-20T23:00:09 WAT" duration-ms="48031">
+    <test started-at="2024-09-21T09:42:44 WAT" name="Default test" finished-at="2024-09-21T09:42:58 WAT" duration-ms="14394">
       <class name="highTechQA.Additem">
-        <test-method is-config="true" signature="lauchPage()[pri:0, instance:highTechQA.Additem@359f7cdf]" started-at="2024-09-20T22:59:21 WAT" name="lauchPage" finished-at="2024-09-20T23:00:05 WAT" duration-ms="44299" status="PASS">
+        <test-method is-config="true" signature="lauchPage()[pri:0, instance:highTechQA.Additem@4567f35d]" started-at="2024-09-21T09:42:44 WAT" name="lauchPage" finished-at="2024-09-21T09:42:54 WAT" duration-ms="10673" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- lauchPage -->
-        <test-method signature="TC_3_addItem()[pri:0, instance:highTechQA.Additem@359f7cdf]" started-at="2024-09-20T23:00:05 WAT" name="TC_3_addItem" finished-at="2024-09-20T23:00:09 WAT" duration-ms="3358" status="FAIL">
+        <test-method signature="TC_3_addItem()[pri:0, instance:highTechQA.Additem@4567f35d]" started-at="2024-09-21T09:42:54 WAT" name="TC_3_addItem" finished-at="2024-09-21T09:42:58 WAT" duration-ms="3350" status="FAIL">
           <exception class="java.lang.NullPointerException">
             <message>
               <![CDATA[Cannot invoke "org.openqa.selenium.WebDriver.findElement(org.openqa.selenium.By)" because "driver" is null]]>
@@ -54,11 +54,11 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC_3_addItem -->
-        <test-method is-config="true" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:highTechQA.Additem@359f7cdf]" started-at="2024-09-20T23:00:09 WAT" name="Aftermethod" finished-at="2024-09-20T23:00:09 WAT" duration-ms="337" status="PASS">
+        <test-method is-config="true" signature="Aftermethod(org.testng.ITestResult)[pri:0, instance:highTechQA.Additem@4567f35d]" started-at="2024-09-21T09:42:58 WAT" name="Aftermethod" finished-at="2024-09-21T09:42:58 WAT" duration-ms="335" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=TC_3_addItem status=FAILURE method=Additem.TC_3_addItem()[pri:0, instance:highTechQA.Additem@359f7cdf] output={null}]]]>
+                <![CDATA[[TestResult name=TC_3_addItem status=FAILURE method=Additem.TC_3_addItem()[pri:0, instance:highTechQA.Additem@4567f35d] output={null}]]]>
               </value>
             </param>
           </params>
