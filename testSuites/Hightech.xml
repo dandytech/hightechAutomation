@@ -16,6 +16,8 @@
 	<test thread-count="5" name="Item Management">
 		<classes>
 			<class name="highTechQA.AddItem" />
+			<class name="highTechQA.UpdateItem" />
+			<class name="highTechQA.DeleteItem" />
 		</classes>
 	</test> <!--
 	Test -->
