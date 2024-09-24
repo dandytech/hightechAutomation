@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="highTechQA.Additem">
+      <class name="highTechQA.UpdateItem">
         <methods>
-          <include name="lauchPage"/>
           <include name="Aftermethod"/>
-          <include name="TC_3_addItem"/>
+          <include name="TC_4_updateItem"/>
+          <include name="lauchPage"/>
         </methods>
-      </class> <!-- highTechQA.Additem -->
+      </class> <!-- highTechQA.UpdateItem -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

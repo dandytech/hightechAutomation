@@ -30,21 +30,19 @@ public class UpdateItem extends reuse {
 	@Test
 	public void TC_4_updateItem() throws InterruptedException {
 		// driver.findElement(By.xpath("//a[text()='Sign Up']")).click();
-		driver.findElement(By.xpath("//input[@placeholder='Enter Username']")).sendKeys("Test8");
-		driver.findElement(By.xpath("//input[@placeholder='Enter Password']")).sendKeys("Password8");
+		driver.findElement(By.xpath("//input[@placeholder='Enter Username']")).sendKeys("Mary");
+		driver.findElement(By.xpath("//input[@placeholder='Enter Password']")).sendKeys("Password");
 		driver.findElement(By.xpath("//button[text()='Login']")).click();
-		
-		WebElement validationElement = driver.findElement(By.xpath("//form[@class='signup-form']"));
+
+		WebElement validationElement = driver.findElement(By.xpath("//p[text()='LIST OF ITEMS']"));
 		String formText = validationElement.getText();
 		// Assert that the form does not contain the text 'Test failed'
-		Assert.assertFalse(formText.contains("LIST OF ITEMS"), "Test failed: Form contains the text 'LIST OF ITEMS");
+		Assert.assertEquals(formText, "LIST OF ITEMS");
 		Thread.sleep(3000);
-		
+
 		String itemToUpdate = "Pen";
-		
-		
-		List<WebElement> items = driver
-				.findElements(By.xpath("//p[@class='container2']"));
+
+		List<WebElement> items = driver.findElements(By.xpath("//p[@class='container2']"));
 
 		// Get the count of characters that are listed (snapshot of the list size)
 		int containerCount = items.size();
@@ -53,12 +51,11 @@ public class UpdateItem extends reuse {
 		// Iterate over the list
 		for (int i = 0; i < containerCount; i++) {
 			String containerText = items.get(i).getText();
-			//System.out.println("Character texts: " + containerText);
+			// System.out.println("Character texts: " + containerText);
 
 			// Check if the character is "alive"
 			if (containerText.contains(itemToUpdate)) {
-				WebElement characterToClick = driver
-						.findElements(By.xpath("//button[text()='Edit']")).get(i);
+				WebElement characterToClick = driver.findElements(By.xpath("//button[text()='Edit']")).get(i);
 
 				// Wait until the element is clickable
 				wait.until(ExpectedConditions.elementToBeClickable(characterToClick));
@@ -67,21 +64,24 @@ public class UpdateItem extends reuse {
 				((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", characterToClick);
 
 				// Click the element
-				characterToClick.click();
+				driver.findElement(By.xpath("//button[text()='Edit']")).click();
 
-				System.out.println("About to update: " + containerText);
-				
-				driver.findElement(By.xpath("//input[@placeholder='Item Name']")).sendKeys("Selenium");
-				driver.findElement(By.xpath("//input[@placeholder='Description']")).sendKeys("For Web App Automation");
+				System.out.println("Updated: " + itemToUpdate);
+
+				driver.findElement(By.xpath("//input[@placeholder='Updated Name']")).clear();
+				driver.findElement(By.xpath("//input[@placeholder='Updated Name']")).sendKeys("Selenium");
+				driver.findElement(By.xpath("//textarea[@placeholder='Updated Description']")).clear();
+				driver.findElement(By.xpath("//textarea[@placeholder='Updated Description']"))
+						.sendKeys("For Web App Automation");
+
 				driver.findElement(By.xpath("//button[text()='Update Item']")).click();
-				
-				Thread.sleep(3000);
-				tearDown();
-				
+
 			}
 		}
 
-	
+		Thread.sleep(5000);
+
+		tearDown();
 	}
 
 	// Take screenshot on test failure
@@ -92,6 +92,3 @@ public class UpdateItem extends reuse {
 		}
 	}
 }
-
-
-

@@ -24,26 +24,21 @@ public class DeleteItem extends reuse {
 
 	}
 
-	
 	@Test
 	public void TC_5_DeleteItem() throws InterruptedException {
 		// driver.findElement(By.xpath("//a[text()='Sign Up']")).click();
-		driver.findElement(By.xpath("//input[@placeholder='Enter Username']")).sendKeys("Test8");
-		driver.findElement(By.xpath("//input[@placeholder='Enter Password']")).sendKeys("Password8");
+		driver.findElement(By.xpath("//input[@placeholder='Enter Username']")).sendKeys("Mary");
+		driver.findElement(By.xpath("//input[@placeholder='Enter Password']")).sendKeys("Password");
 		driver.findElement(By.xpath("//button[text()='Login']")).click();
-		
-		WebElement validationElement = driver.findElement(By.xpath("//form[@class='signup-form']"));
+
+		WebElement validationElement = driver.findElement(By.xpath("//p[text()='LIST OF ITEMS']"));
 		String formText = validationElement.getText();
 		// Assert that the form does not contain the text 'Test failed'
-		Assert.assertFalse(formText.contains("LIST OF ITEMS"), "Test failed: Form contains the text 'LIST OF ITEMS");
+		Assert.assertEquals(formText, "LIST OF ITEMS");
 		Thread.sleep(3000);
-		
-		String itemToDelete = "Shoe";
-		String newName = "Jeans";
-		String newDescription = "Blue Men Jeans with crossing Belt";
-		
-		
-		
+
+		String itemToDelete = "Eye lashed";
+
 		List<WebElement> items = driver.findElements(By.xpath("//p[@class='container2']"));
 
 		// Get the count of characters that are listed (snapshot of the list size)
@@ -53,11 +48,11 @@ public class DeleteItem extends reuse {
 		// Iterate over the list
 		for (int i = 0; i < containerCount; i++) {
 			String containerText = items.get(i).getText();
-			//System.out.println("Character texts: " + containerText);
+			// System.out.println("Character texts: " + containerText);
 
 			// Check if the character is "alive"
 			if (containerText.contains(itemToDelete)) {
-				WebElement characterToClick = driver.findElements(By.xpath("//button[text()='Delete']")).get(i);
+				WebElement characterToClick = driver.findElements(By.xpath("//button[text()='   Delete']")).get(i);
 
 				// Wait until the element is clickable
 				wait.until(ExpectedConditions.elementToBeClickable(characterToClick));
@@ -66,20 +61,18 @@ public class DeleteItem extends reuse {
 				((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", characterToClick);
 
 				// Click the element
-				characterToClick.click();
+				driver.findElement(By.xpath("//button[text()='   Delete']")).click();
 
-				System.out.println("About to Delete: " + containerText);
-				
-				driver.findElement(By.xpath("//input[@placeholder='Item Name']")).sendKeys(newName);
-				driver.findElement(By.xpath("//input[@placeholder='Description']")).sendKeys(newDescription);
+				System.out.println("Deleted: " + itemToDelete);
+
 				driver.findElement(By.xpath("//button[text()='Delete Item']")).click();
-				
-				
-				Assert.assertTrue(validationElement.contains("Failed to delete item"));
-				Thread.sleep(3000);
-				tearDown();
-				
+
 			}
 		}
 
+		Thread.sleep(5000);
+
+		tearDown();
+
+	}
 }
