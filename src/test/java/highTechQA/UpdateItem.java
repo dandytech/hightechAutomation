@@ -41,6 +41,7 @@ public class UpdateItem extends reuse {
 		Thread.sleep(3000);
 
 		String itemToUpdate = "Pen";
+		String newItemChanges = "Pencile";
 
 		List<WebElement> items = driver.findElements(By.xpath("//p[@class='container2']"));
 
@@ -69,7 +70,7 @@ public class UpdateItem extends reuse {
 				System.out.println("Updated: " + itemToUpdate);
 
 				driver.findElement(By.xpath("//input[@placeholder='Updated Name']")).clear();
-				driver.findElement(By.xpath("//input[@placeholder='Updated Name']")).sendKeys("Selenium");
+				driver.findElement(By.xpath("//input[@placeholder='Updated Name']")).sendKeys(newItemChanges);
 				driver.findElement(By.xpath("//textarea[@placeholder='Updated Description']")).clear();
 				driver.findElement(By.xpath("//textarea[@placeholder='Updated Description']"))
 						.sendKeys("For Web App Automation");
@@ -79,9 +80,8 @@ public class UpdateItem extends reuse {
 			}
 		}
 
-		Thread.sleep(5000);
-
-		tearDown();
+		Thread.sleep(3000);
+		tearDown(); //close the browser
 	}
 
 	// Take screenshot on test failure

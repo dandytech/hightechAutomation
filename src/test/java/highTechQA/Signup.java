@@ -26,20 +26,25 @@ public class Signup extends reuse {
 
 	@Test
 	public void TC_1_signup() throws InterruptedException {
+		
+		//provide login details
+		String username = "Interviewing";
+		String password = "Password";
+		
+		//sign up details
 		driver.findElement(By.xpath("//a[text()='Sign Up']")).click();
-		driver.findElement(By.xpath("//input[@placeholder='Enter Username']")).sendKeys("Test8");
-		driver.findElement(By.xpath("//input[@placeholder='Enter Password']")).sendKeys("Password8");
+		driver.findElement(By.xpath("//input[@placeholder='Enter Username']")).sendKeys(username);
+		driver.findElement(By.xpath("//input[@placeholder='Enter Password']")).sendKeys(password);
 		driver.findElement(By.xpath("//button[text()='Submit']")).click();
 
-		WebElement validationElement = driver.findElement(By.xpath("//form[@class='signup-form']"));
-
+		//verification
+		WebElement validationElement = driver.findElement(By.xpath("//p[text()='LOGIN']"));
 		String formText = validationElement.getText();
-
-		// Assert that the form does not contain the text 'Test failed'
-		Assert.assertFalse(formText.contains("Test failed"), "Test failed: Form contains the text 'Test failed'.");
-
+		// Assert that the form contain the text 'LOGIN'
+		Assert.assertEquals(formText, "LOGIN");
 		
-		tearDown();
+		Thread.sleep(3000);
+		tearDown(); //close the browser
 	}
 
 	// Take screenshot on test failure

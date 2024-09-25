@@ -26,16 +26,23 @@ public class Login extends reuse {
 
 	@Test
 	public void TC_2_login() throws InterruptedException {
-		// driver.findElement(By.xpath("//a[text()='Sign Up']")).click();
-		driver.findElement(By.xpath("//input[@placeholder='Enter Username']")).sendKeys("Test8");
-		driver.findElement(By.xpath("//input[@placeholder='Enter Password']")).sendKeys("Password8");
+
+		// provide login details
+		String username = "Interviewing";
+		String password = "Password";
+
+		//Login form
+		driver.findElement(By.xpath("//input[@placeholder='Enter Username']")).sendKeys(username);
+		driver.findElement(By.xpath("//input[@placeholder='Enter Password']")).sendKeys(password);
 		driver.findElement(By.xpath("//button[text()='Login']")).click();
+
 		
-		WebElement validationElement = driver.findElement(By.xpath("//form[@class='signup-form']"));
+		//Verification
+		WebElement validationElement = driver.findElement(By.xpath("//p[text()='LIST OF ITEMS']"));
 		String formText = validationElement.getText();
-		// Assert that the form does not contain the text 'Test failed'
-		Assert.assertFalse(formText.contains("Login failed: check your credentials and try again"), "Test failed: Form contains the text 'Login failed: check your credentials and try again'.");
-		Thread.sleep(5000);
+		// Assert that the form  contain the text 'LIST OF ITEMS'
+		Assert.assertEquals(formText, "LIST OF ITEMS");
+		Thread.sleep(3000);
 		tearDown();
 	}
 
@@ -46,4 +53,5 @@ public class Login extends reuse {
 			TakeScreenshot(result.getName());
 		}
 	}
+
 }
