@@ -26,9 +26,16 @@ public class DeleteItem extends reuse {
 
 	@Test
 	public void TC_5_DeleteItem() throws InterruptedException {
+		// Login details
+		String username = "Mary";
+		String password = "Password";
+
+		//Item name to delete
+		String itemToDelete = "Pen";
+		
 		// driver.findElement(By.xpath("//a[text()='Sign Up']")).click();
-		driver.findElement(By.xpath("//input[@placeholder='Enter Username']")).sendKeys("Mary");
-		driver.findElement(By.xpath("//input[@placeholder='Enter Password']")).sendKeys("Password");
+		driver.findElement(By.xpath("//input[@placeholder='Enter Username']")).sendKeys(username);
+		driver.findElement(By.xpath("//input[@placeholder='Enter Password']")).sendKeys(password);
 		driver.findElement(By.xpath("//button[text()='Login']")).click();
 
 		WebElement validationElement = driver.findElement(By.xpath("//p[text()='LIST OF ITEMS']"));
@@ -37,7 +44,7 @@ public class DeleteItem extends reuse {
 		Assert.assertEquals(formText, "LIST OF ITEMS");
 		Thread.sleep(3000);
 
-		String itemToDelete = "Eye lashed";
+		
 
 		List<WebElement> items = driver.findElements(By.xpath("//p[@class='container2']"));
 

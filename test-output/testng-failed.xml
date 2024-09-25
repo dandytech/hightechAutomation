@@ -3,13 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="highTechQA.Signup">
+      <class name="highTechQA.DeleteItem">
         <methods>
-          <include name="Aftermethod"/>
           <include name="lauchPage"/>
-          <include name="TC_1_signup"/>
+          <include name="TC_5_DeleteItem"/>
         </methods>
-      </class> <!-- highTechQA.Signup -->
+      </class> <!-- highTechQA.DeleteItem -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

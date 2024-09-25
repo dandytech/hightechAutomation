@@ -80,7 +80,7 @@ public class UpdateItem extends reuse {
 			}
 		}
 
-		Thread.sleep(3000);
+		Thread.sleep(3000); //wait 3sec
 		tearDown(); //close the browser
 	}
 

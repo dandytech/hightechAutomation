@@ -28,7 +28,7 @@ public class Login extends reuse {
 	public void TC_2_login() throws InterruptedException {
 
 		// provide login details
-		String username = "Interviewing";
+		String username = "Mary";
 		String password = "Password";
 
 		//Login form

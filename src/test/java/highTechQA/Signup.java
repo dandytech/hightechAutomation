@@ -28,7 +28,7 @@ public class Signup extends reuse {
 	public void TC_1_signup() throws InterruptedException {
 		
 		//provide login details
-		String username = "Interviewing";
+		String username = "DanielA";
 		String password = "Password";
 		
 		//sign up details

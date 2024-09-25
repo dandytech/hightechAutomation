@@ -5,7 +5,6 @@ import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.ITestResult;
@@ -27,23 +26,35 @@ public class Additem extends reuse {
 
 	@Test
 	public void TC_3_addItem() throws InterruptedException {
-		// driver.findElement(By.xpath("//a[text()='Sign Up']")).click();
-		driver.findElement(By.xpath("//input[@placeholder='Enter Username']")).sendKeys("Test8");
-		driver.findElement(By.xpath("//input[@placeholder='Enter Password']")).sendKeys("Password8");
+
+		// Login details
+		String username = "Mary";
+		String password = "Password";
+
+		// Details of Item to Add
+		String name = "Pen";
+		String description = "For Writing";
+
+		// Login
+		driver.findElement(By.xpath("//input[@placeholder='Enter Username']")).sendKeys(username);
+		driver.findElement(By.xpath("//input[@placeholder='Enter Password']")).sendKeys(password);
 		driver.findElement(By.xpath("//button[text()='Login']")).click();
-		
-		WebElement validationElement = driver.findElement(By.xpath("//form[@class='signup-form']"));
+		Thread.sleep(5000); // wait 3 sec
+
+		// Verification
+		WebElement validationElement = driver.findElement(By.xpath("//p[text()='LIST OF ITEMS']"));
 		String formText = validationElement.getText();
-		// Assert that the form does not contain the text 'Test failed'
-		Assert.assertFalse(formText.contains("Login failed: check your credentials and try again"), "Test failed: Form contains the text 'Login failed: check your credentials and try again'.");
-		Thread.sleep(3000);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@class='additembutton  ']")));
-		driver.findElement(By.xpath("//button[@class='additembutton  ']")).click();
-		driver.findElement(By.xpath("//input[@placeholder='Item Name']")).sendKeys("Selenium");
-		driver.findElement(By.xpath("//input[@placeholder='Description']")).sendKeys("For Web App Automation");
+		// Assert that the form contain the text 'LIST OF ITEMS'
+		Assert.assertEquals(formText, "LIST OF ITEMS");
+		System.out.print("About to add" + name);
+
+		// add item form
+		driver.findElement(By.xpath("//button[text()='   + Add Item']")).click();
+		driver.findElement(By.xpath("//input[@placeholder='Item Name']")).sendKeys(name);
+		driver.findElement(By.xpath("//textarea[@placeholder='Description']")).sendKeys(description);
 		driver.findElement(By.xpath("//button[text()='Add Item']")).click();
-		Thread.sleep(5000);
-		tearDown();
+		Thread.sleep(3000); // wait 3 sec
+		tearDown(); // close the bowser
 	}
 
 	// Take screenshot on test failure
@@ -54,6 +65,3 @@ public class Additem extends reuse {
 		}
 	}
 }
-
-
-
